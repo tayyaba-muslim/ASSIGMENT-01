@@ -1,0 +1,123 @@
+create database SoftwareHouse;
+use SoftwareHouse;
+CREATE TABLE dept (
+  deptno INT NOT NULL,
+  dname VARCHAR(14),
+  loc VARCHAR(13)
+);
+
+
+
+INSERT INTO dept VALUES(10, 'ACCOUNTING', 'NEW YORK');
+INSERT INTO dept VALUES(20, 'RESEARCH', 'DALLAS');
+INSERT INTO dept VALUES(30, 'SALES', 'CHICAGO');
+INSERT INTO dept VALUES(40, 'OPERATIONS', 'BOSTON');
+
+
+
+
+
+CREATE TABLE emp (
+  empno INT PRIMARY KEY,
+  ename VARCHAR(10),
+  job VARCHAR(9),
+  mgr INT NULL,
+  hiredate DATE,
+  sal NUMERIC(7,2),
+  comm NUMERIC(7,2) NULL,
+  dept INT
+);
+
+INSERT INTO EMP VALUES
+  (7369, 'SMITH', 'CLERK', 7902, '07-12-1980', 800, NULL, 20);
+INSERT INTO EMP VALUES
+  (7499, 'ALLEN', 'SALESMAN', 7698, '02-20-1981', 1600, 300, 30);
+INSERT INTO EMP VALUES
+  (7521, 'WARD', 'SALESMAN', 7698, '02-22-1981', 1250, 500, 30);
+INSERT INTO EMP VALUES
+  (7566, 'JONES', 'MANAGER', 7839, '04-02-1981', 2975, NULL, 20);
+INSERT INTO EMP VALUES
+  (7654, 'MARTIN', 'SALESMAN', 7698, '09-28-1981', 1250, 1400, 30);
+INSERT INTO EMP VALUES
+  (7698, 'BLAKE', 'MANAGER', 7839, '05-01-1981', 2850, NULL, 30);
+INSERT INTO EMP VALUES
+  (7782, 'CLARK', 'MANAGER', 7839, '06-06-1981', 2450, NULL, 10);
+INSERT INTO EMP VALUES
+  (7788, 'SCOTT', 'ANALYST', 7566, '12-12-1982', 3000, NULL, 20);
+INSERT INTO EMP VALUES
+  (7839, 'KING', 'PRESIDENT', NULL, '11-11-1981', 5000, NULL, 10);
+INSERT INTO EMP VALUES
+  (7844, 'TURNER', 'SALESMAN', 7698, '09-09-1981', 1500, 0, 30);
+INSERT INTO EMP VALUES
+  (7876, 'ADAMS', 'CLERK', 7788, '01-01-1983', 1100, NULL, 20);
+INSERT INTO EMP VALUES
+  (7900, 'JAMES', 'CLERK', 7698, '03-12-1981', 950, NULL, 30);
+INSERT INTO EMP VALUES
+  (7902, 'FORD', 'ANALYST', 7566, '03-12-1981', 3000, NULL, 20);
+INSERT INTO EMP VALUES
+  (7934, 'MILLER', 'CLERK', 7782, '03-01-1982', 1300, NULL, 10);
+
+CREATE TABLE SERVICES (
+  GRADE NUMERIC,
+  LOSAL NUMERIC,
+  HISAL NUMERIC
+);
+
+INSERT INTO  SERVICES VALUES (1, 700, 1200);
+INSERT INTO SERVICES VALUES (2, 1201, 1400);
+INSERT INTO SERVICES VALUES (3, 1401, 2000);
+INSERT INTO SERVICES VALUES (4, 2001, 3000);
+INSERT INTO SERVICES VALUES (5, 3001, 9999);
+
+-- a) By using query fetch all records from the table employee.
+select * from emp;
+
+-- b) By using query fetch the details of persons whose designation is manager.
+select * from emp where job = "Manager";
+
+-- c) update the column of empno => ID, ename => Name.
+ALTER TABLE emp CHANGE empno ID int;
+ALTER TABLE emp CHANGE ename name VARCHAR(20);
+
+-- d) update the column named hiredate and add the random value into add.
+update emp set hiredate="2009-05-27" where Id=7369;
+update emp set hiredate="2010-04-26" where Id=7499;
+update emp set hiredate="2011-03-25" where Id=7521;
+update emp set hiredate="2012-02-24" where Id=7566;
+update emp set hiredate="2013-01-23" where Id=7654;
+update emp set hiredate="2014-05-22" where Id=7698;
+update emp set hiredate="2015-04-21" where Id=7782;
+update emp set hiredate="2016-03-20" where Id=7788;
+update emp set hiredate="2017-02-19" where Id=7839;
+update emp set hiredate="2018-01-18" where Id=7844;
+update emp set hiredate="2019-05-17" where Id=7876;
+update emp set hiredate="2020-04-16" where Id=7900;
+update emp set hiredate="2021-03-15" where Id=7902;
+update emp set hiredate="2022-02-14" where Id=7934;
+
+-- e) add the column named age after the department and assign the random value into it.
+
+ALTER TABLE emp  ADD age INT CHECK(age>18);
+update emp set Age="22" where Id=7369;
+update emp set Age="25" where Id=7499;
+update emp set Age="26" where Id=7521;
+update emp set Age="27" where Id=7566;
+update emp set Age="28" where Id=7654;
+update emp set Age="29" where Id=7698;
+update emp set Age="30" where Id=7782;
+update emp set Age="31" where Id=7788;
+update emp set Age="30" where Id=7839;
+update emp set Age="25" where Id=7844;
+update emp set Age="27" where Id=7876;
+update emp set Age="29" where Id=7900;
+update emp set Age="25" where Id=7902;
+update emp set Age="27" where Id=7934;
+
+
+
+
+
+
+
+
+
